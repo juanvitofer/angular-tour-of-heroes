@@ -1,3 +1,13 @@
+<!-- Add an h2 tag -->
+<h2>My Heroes</h2>
+<!-- Add an HTML unordered list -->
+<ul class="heroes">
+    <!-- Insert an li tag that displays properties of a hero -->
+    <!-- Uses the ngFor directive to repeat the host element for each element in a list -->
+    <li *ngFor="let hero of heroes">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
 <!-- Update the binding in the template to announce the hero's name and show both id and name in a details layout -->
 <h2>{{ hero.name }} Details</h2>
 <div><span>id: </span>{{hero.id}}</div>

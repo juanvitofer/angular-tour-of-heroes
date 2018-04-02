@@ -4,16 +4,24 @@
 <ul class="heroes">
     <!-- Insert an li tag that displays properties of a hero -->
     <!-- Uses the ngFor directive to repeat the host element for each element in a list -->
-    <li *ngFor="let hero of heroes">
+    <!-- Add a click event binding -->
+    <li *ngFor="let hero of heroes" 
+        [class.selected]="hero === selectedHero"
+        (click)="onSelect(hero)">
         <span class="badge">{{hero.id}}</span> {{hero.name}}
     </li>
 </ul>
-<!-- Update the binding in the template to announce the hero's name and show both id and name in a details layout -->
-<h2>{{ hero.name }} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<!-- Refactor the details area including a input textbox to write or modify the hero name -->
-<div>
-    <label>name: 
-        <input [(ngModel)]="hero.name" placeholder="name">
-    </label>
+<!-- Wrap the hero detail HTML in a div tag -->
+<!-- Add Angular's ngIf directive to the and set it to selectedHero -->
+<div *ngIf="selectedHero">
+    <!-- Rename the hero property to selectedHero -->
+    <h2>{{ selectedHero.name | uppercase }} Details</h2>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <!-- Refactor the details area including a input textbox to write or modify the hero name -->
+    <div>
+        <label>name: 
+            <input [(ngModel)]="selectedHero.name" placeholder="name">
+        </label>
+    </div>
 </div>
+

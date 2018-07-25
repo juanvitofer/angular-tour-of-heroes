@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 /* Import the Hero class */
 import { Hero } from '../hero';
-/* Import the mock HEROES */
-import { HEROES } from '../mock-heroes';
+/* Import the HeroService instead of HEROES */
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -12,12 +12,16 @@ import { HEROES } from '../mock-heroes';
 export class HeroesComponent implements OnInit {
   // Rename the component's hero property to selectedHero
   selectedHero: Hero;
-  // Add a heroes property
-  heroes = HEROES;
+  // Edit the definition of the heroes property
+  heroes: Hero[];
 
-  constructor() { }
+  // Add a private heroService parameter of type HeroService to the constructor
+  constructor(private heroService: HeroService) { }
 
+  // Call the getHeroes() method inside the ngOnInit lifecycle hook
+  // Angular call ngOnInit at an appropriate time after constructing a HeroesComponent instance
   ngOnInit() {
+    this.getHeroes();
   }
 
   // Add the onSelect() method
@@ -27,6 +31,14 @@ export class HeroesComponent implements OnInit {
    */
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+
+  // Create a function to retrieve the heroes from the service
+  /**
+   * Gets all heroes
+   */
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
   }
 
 }

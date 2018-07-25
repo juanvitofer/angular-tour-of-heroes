@@ -4,7 +4,9 @@ import { Hero } from './hero';
 /* Import the mock HEROES */
 import { HEROES } from './mock-heroes';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root', // <-- Provide the service at the root level
+})
 export class HeroService {
 
   constructor() { }

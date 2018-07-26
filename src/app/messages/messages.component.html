@@ -1,0 +1,10 @@
+<!-- Add Angular's ngIf directive to display the messages area if there are messages to show -->
+<div *ngIf="messageService.messages.length">
+  <!-- Add an h2 tag -->
+  <h2>Messages</h2>
+  <!-- Add an button to clear the messages  -->
+  <button class="clear"
+          (click)="messageService.clear()">clear</button>
+  <!-- Add Angular's ngFor directive to display each message -->
+  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+</div>

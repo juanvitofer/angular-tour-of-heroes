@@ -33,12 +33,14 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
 
-  // Create a function to retrieve the heroes from the service
+  // Adjust the getHeroes() method according to the made changes in HeroService
+  // Now is waited for the Observable to emit the array of heroes
   /**
    * Gets all heroes
    */
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);
   }
 
 }

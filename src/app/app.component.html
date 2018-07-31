@@ -1,5 +1,10 @@
 <!-- Delete the default template and replace it -->
 <h1>{{title}}</h1>
+<!-- Add a <nav> element -->
+<nav>
+    <!-- Add an anchor element that, when clicked, triggers navigation to the HeroesComponent -->
+    <a routerLink="/heroes">Heroes</a>
+</nav>
 <!-- Replace the <app-heroes> element with a <router-outlet> element -->
 <router-outlet></router-outlet>
 <!-- Add the messages selector to the AppComponent template file -->

@@ -10,8 +10,6 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  // Rename the component's hero property to selectedHero
-  selectedHero: Hero;
   // Edit the definition of the heroes property
   heroes: Hero[];
 
@@ -22,15 +20,6 @@ export class HeroesComponent implements OnInit {
   // Angular call ngOnInit at an appropriate time after constructing a HeroesComponent instance
   ngOnInit() {
     this.getHeroes();
-  }
-
-  // Add the onSelect() method
-  /**
-   * Assigns the clicked hero from the template to the component's selectedHero
-   * @param hero clicked by the user
-   */
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
   }
 
   // Adjust the getHeroes() method according to the made changes in HeroService

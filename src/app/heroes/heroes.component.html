@@ -4,12 +4,10 @@
 <ul class="heroes">
     <!-- Insert an li tag that displays properties of a hero -->
     <!-- Uses the ngFor directive to repeat the host element for each element in a list -->
-    <!-- Add a click event binding -->
-    <li *ngFor="let hero of heroes" 
-        [class.selected]="hero === selectedHero"
-        (click)="onSelect(hero)">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <li *ngFor="let hero of heroes">
+        <!-- Wrap the badge and name in an anchor element (<a>) -->
+        <a routerLink="/detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
     </li>
 </ul>
-<!-- Add the hero detail to bind it -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>

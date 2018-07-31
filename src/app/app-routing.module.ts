@@ -5,11 +5,14 @@ import { RouterModule, Routes, Router } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
 /* Import the DashboardComponent */
 import { DashboardComponent } from './dashboard/dashboard.component';
+/* Import HeroDetailComponent */
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 // Create a routes array
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // <-- Add a route so that the app navigate to the dashboard automatically
   { path: 'dashboard', component: DashboardComponent }, // <-- Add a route that matches a path to the DashboardComponent
+  { path: 'detail/:id', component: HeroDetailComponent }, // <-- Add a parameterized route to the AppRoutingModule.routes array
   { path: 'heroes', component: HeroesComponent }
 ];
 

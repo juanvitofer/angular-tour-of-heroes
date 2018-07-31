@@ -3,9 +3,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 /* Import the HeroesComponent so you can reference it in a Route */
 import { HeroesComponent } from './heroes/heroes.component';
+/* Import the DashboardComponent */
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 // Create a routes array
 const routes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // <-- Add a route so that the app navigate to the dashboard automatically
+  { path: 'dashboard', component: DashboardComponent }, // <-- Add a route that matches a path to the DashboardComponent
   { path: 'heroes', component: HeroesComponent }
 ];
 

@@ -1,0 +1,14 @@
+<!-- Add an h3 tag -->
+<h3>Top Heroes</h3>
+<!-- Use a div tag to create a grid -->
+<div class="grid grid-pad">
+  <!-- Add an anchor element for each heroe -->
+  <!-- Use Angular's ngFor directive to create as many links as are in the component's heroes array -->
+  <a *ngFor="let hero of heroes" class="col-1-4">
+    <!-- Add a div tag to contain the hero name -->
+    <div class="module hero">
+      <!-- Add an h4 tag to display the hero name -->
+      <h4>{{hero.name}}</h4>
+    </div>
+  </a>
+</div>

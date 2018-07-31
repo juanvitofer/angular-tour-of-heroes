@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 /* Import Routes in the RouterModule */
-import { RouterModule, Routes, Router } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 /* Import the HeroesComponent so you can reference it in a Route */
 import { HeroesComponent } from './heroes/heroes.component';
 /* Import the DashboardComponent */

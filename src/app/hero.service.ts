@@ -26,4 +26,17 @@ export class HeroService {
     return of(HEROES);
   }
 
+  // Add the getHero() method
+  // Has an asynchronous signature
+  // Returns a mock hero as an Observable, using the RxJS of() function
+  /**
+   * Get a specific hero
+   * @param id used to get a hero
+   */
+  getHero(id: number): Observable<Hero> {
+    // TODO: send the message _after_ fetching the hero
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(HEROES.find(hero => hero.id === id));
+  }
+
 }

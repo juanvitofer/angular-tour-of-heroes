@@ -1,5 +1,15 @@
 <!-- Add an h2 tag -->
 <h2>My Heroes</h2>
+<!-- Add an input element paired with an add button -->
+<div>
+    <label>Hero name:
+      <input #heroName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(heroName.value); heroName.value=''">
+      add
+    </button>
+  </div>
 <!-- Add an HTML unordered list -->
 <ul class="heroes">
     <!-- Insert an li tag that displays properties of a hero -->

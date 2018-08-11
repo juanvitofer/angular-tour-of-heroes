@@ -96,7 +96,22 @@ export class HeroService {
     return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
-  );
-}
+    );
+  }
+
+  // Add the addHero() method
+  /**
+   * Adds a new hero to the server
+   * @param hero to add
+   */
+  addHero (hero: Hero): Observable<Hero> {
+    // The HttpClient.post() method takes three parameters:
+    // the URL, the data to add, options
+    return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
+      // tslint:disable-next-line:no-shadowed-variable
+      tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
+      catchError(this.handleError<Hero>('addHero'))
+    );
+  }
 
 }

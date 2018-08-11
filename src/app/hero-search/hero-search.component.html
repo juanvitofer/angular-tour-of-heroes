@@ -1,0 +1,15 @@
+<!-- Add a search box -->
+<div id="search-component">
+  <!-- Add a h4 tag -->
+  <h4>Hero Search</h4>
+  <!-- Add a text box -->
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <!-- Add a list of matching results  -->
+  <ul class="search-result">
+    <!-- Use Angular's ngFor directive to create as many links as are needed -->
+    <li *ngFor="let hero of heroes$ | async" >
+      <!-- Add an anchor element for each found hero -->
+      <a routerLink="/detail/{{hero.id}}">{{hero.name}}</a>
+    </li>
+  </ul>
+</div>

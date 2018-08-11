@@ -11,6 +11,11 @@ import { MessageService } from './message.service';
 import { catchError, map, tap } from 'rxjs/operators';
 
 
+// Definde the httpOptions constant
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root', // <-- Provide the service at the root level
 })
@@ -79,5 +84,19 @@ export class HeroService {
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
   }
+
+  // Add the update() method
+  /**
+   * Updates the hero on the server
+   * @param hero to update
+   */
+  updateHero (hero: Hero): Observable<any> {
+    // The HttpClient.put() method takes three parameters:
+    // the URL, the data to update (the modified hero in this case), options
+    return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
+      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      catchError(this.handleError<any>('updateHero'))
+  );
+}
 
 }

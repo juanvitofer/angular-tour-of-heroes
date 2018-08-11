@@ -50,4 +50,14 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
+  // Add the save() method
+  /**
+   * Save the hero name changes
+   */
+  save(): void {
+    // Use the hero service updateHero() method
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => this.goBack());
+  }
+
 }

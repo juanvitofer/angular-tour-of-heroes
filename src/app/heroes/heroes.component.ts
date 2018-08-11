@@ -35,6 +35,7 @@ export class HeroesComponent implements OnInit {
   // Add the add() method
   /**
    * Adds a hero to the heroes list
+   * @param name of hero to add
    */
   add(name: string): void {
     name = name.trim();
@@ -43,6 +44,16 @@ export class HeroesComponent implements OnInit {
       .subscribe(hero => {
         this.heroes.push(hero);
       });
+  }
+
+  // Add the delete() method
+  /**
+   * Deletes a hero from the heroes list
+   * @param hero to delete
+   */
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero).subscribe();
   }
 
 }
